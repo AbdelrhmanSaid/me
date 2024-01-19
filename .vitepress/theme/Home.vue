@@ -12,7 +12,7 @@ const { frontmatter } = useData()
       <h1 class="text-3xl leading-9 font-extrabold md:text-6xl md:leading-14">
         {{ frontmatter.title }}
       </h1>
-      <p class="text-lg text-gray-500 leading-7">
+      <p class="text-lg text-gray-600 dark:text-gray-400 leading-7">
         {{ frontmatter.subtext }}
       </p>
     </div>

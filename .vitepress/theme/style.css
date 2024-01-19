@@ -4,12 +4,18 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body {
-  font-family: 'Poppins', ui-sans-serif, system-ui, -apple-system,
+:root {
+  --font-code: 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, 'Liberation Mono', 'Courier New', monospace;
+  --font-prose: 'Poppins', ui-sans-serif, system-ui, -apple-system,
     BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, Noto Sans,
     sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
     'Noto Color Emoji';
+}
+
+html,
+body {
+  font-family: var(--font-prose);
 }
 
 :root.dark {
@@ -42,102 +48,19 @@ body {
 }
 
 .dark .prose pre {
-  font-family: 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco,
-    Consolas, 'Liberation Mono', 'Courier New', monospace;
+  font-family: var(--font-code);
   font-size: 1.125rem;
   background-color: #121212;
 }
 
-/**
- * prism.js tomorrow night eighties for JavaScript, CoffeeScript, CSS and HTML.
- * Based on https://github.com/chriskempson/tomorrow-theme
- *
- * @author Rose Pritchard
- */
-.token.comment,
-.token.block-comment,
-.token.prolog,
-.token.doctype,
-.token.cdata {
-  color: #999;
-}
-
-.token.punctuation {
-  color: #ccc;
-}
-
-.token.tag,
-.token.attr-name,
-.token.namespace,
-.token.deleted {
-  color: #e2777a;
-}
-
-.token.function-name {
-  color: #6196cc;
-}
-
-.token.boolean,
-.token.number,
-.token.function {
-  color: #f08d49;
-}
-
-.token.property,
-.token.class-name,
-.token.constant,
-.token.symbol {
-  color: #f8c555;
-}
-
-.token.selector,
-.token.important,
-.token.atrule,
-.token.keyword,
-.token.builtin {
-  color: #cc99cd;
-}
-
-.token.string,
-.token.char,
-.token.attr-value,
-.token.regex,
-.token.variable {
-  color: #7ec699;
-}
-
-.token.operator,
-.token.entity,
-.token.url {
-  color: #67cdcc;
-}
-
-.token.important,
-.token.bold {
-  font-weight: bold;
-}
-
-.token.italic {
-  font-style: italic;
-}
-
-.token.entity {
-  cursor: help;
-}
-
-.token.inserted {
-  color: #67cdcc;
-}
-
-button.copy {
-  display: none;
-}
-
-span.lang {
+.lang {
   position: absolute;
   right: 0.5em;
   font-size: 0.75em;
   color: #999;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    'Liberation Mono', 'Courier New', monospace;
+  font-family: var(--font-code);
+}
+
+.copy {
+  display: none;
 }
