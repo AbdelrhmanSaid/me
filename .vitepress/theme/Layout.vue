@@ -8,10 +8,24 @@ const { page, frontmatter } = useData()
 </script>
 
 <template>
-  <div class="antialiased bg-zinc-950 text-white">
+  <div class="antialiased dark:bg-zinc-950 dark:text-white">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 xl:max-w-5xl xl:px-0">
       <nav class="flex justify-between items-center py-10 font-bold">
-        <a class="text-xl" href="/">Abdelrhman Said</a>
+        <a href="/" v-if="frontmatter.index" class="text-xl">
+          Abdelrhman Said
+        </a>
+        <a href="/" v-else class="text-xl flex items-center">
+          <svg
+            class="inline-block mr-2 h-6 w-6"
+            viewBox="0 0 512 512"
+            fill="currentColor"
+          >
+            <polygon
+              points="352,128.4 319.7,96 160,256 160,256 160,256 319.7,416 352,383.6 224.7,256 "
+            />
+          </svg>
+          Back to posts
+        </a>
         <div class="text-sm leading-5">
           <a href="https://github.com/AbdelrhmanSaid" target="_blank">
             Github
@@ -30,7 +44,7 @@ const { page, frontmatter } = useData()
     </main>
 
     <footer class="max-w-3xl mx-auto px-4 sm:px-6 xl:max-w-5xl xl:px-0">
-      <div class="py-10 text-sm text-gray-500">
+      <div class="py-10 text-sm">
         <p>
           © {{ new Date().getFullYear() }} Abdelrhman Said. All rights reserved.
         </p>

@@ -10,35 +10,38 @@ body {
     BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, Noto Sans,
     sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
     'Noto Color Emoji';
+}
+
+:root.dark {
   background-color: #09090b;
 }
 
-.prose * {
+.dark * {
+  border-color: #242424;
+}
+
+.dark .prose * {
   color: #bdbdbd;
 }
 
-.prose h1,
-.prose h2,
-.prose h3,
-.prose h4,
-.prose h5,
-.prose h6,
-.prose strong {
+.dark .prose h1,
+.dark .prose h2,
+.dark .prose h3,
+.dark .prose h4,
+.dark .prose h5,
+.dark .prose h6,
+.dark .prose strong {
   color: #fff;
 }
 
-.prose hr {
-  border-top-color: #121212;
-}
-
-.prose *:not(pre) > code {
+.dark .prose *:not(pre) > code {
   color: #fff;
   background-color: #121212;
   padding: 0.25em 0.5em;
   border-radius: 0.25rem;
 }
 
-.prose pre {
+.dark .prose pre {
   font-family: 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco,
     Consolas, 'Liberation Mono', 'Courier New', monospace;
   font-size: 1.125rem;
