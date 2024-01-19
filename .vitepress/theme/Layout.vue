@@ -13,7 +13,7 @@ const { page, frontmatter } = useData()
       <nav class="flex justify-between items-center py-10 font-bold">
         <a class="text-xl" href="/">Abdelrhman Said</a>
         <div class="text-sm leading-5">
-          <a href="https://github.com/AbdelrhmanSaid/me" target="_blank">
+          <a href="https://github.com/AbdelrhmanSaid" target="_blank">
             Github
           </a>
           <span class="mr-2 ml-2">·</span>
