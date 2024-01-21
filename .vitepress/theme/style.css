@@ -64,3 +64,12 @@ body {
 .copy {
   display: none;
 }
+
+details summary {
+  cursor: pointer;
+  user-select: none;
+}
+
+mjx-container {
+  display: inline-block;
+}
