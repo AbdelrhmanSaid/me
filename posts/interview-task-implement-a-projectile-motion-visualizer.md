@@ -78,28 +78,26 @@ const GRAVITY = 9.8
 Then I formulated functions for calculating flight time, maximum height, and distance:
 
 ```js
-function getFlightTime(initialVelocity, angle) {
-  return (2 * initialVelocity * Math.sin(angle)) / GRAVITY
+function getFlightTime(v, angle) {
+  return (2 * v * Math.sin(angle)) / GRAVITY
 }
 
-function getMaxHeight(initialVelocity, angle) {
-  return Math.pow(initialVelocity * Math.sin(angle), 2) / (2 * GRAVITY)
+function getMaxHeight(v, angle) {
+  return Math.pow(v * Math.sin(angle), 2) / (2 * GRAVITY)
 }
 
-function getDistance(initialVelocity, angle) {
-  return (Math.pow(initialVelocity, 2) / GRAVITY) * Math.sin(angle * 2)
+function getDistance(v, angle) {
+  return (Math.pow(v, 2) / GRAVITY) * Math.sin(angle * 2)
 }
 ```
 
 Now we can define a function for calculating the position of the projectile at any given time:
 
 ```js
-function getPosition(initialVelocity, angle, time) {
+function getPosition(v, angle, time) {
   return {
-    x: initialVelocity * time * Math.cos(angle),
-    y:
-      initialVelocity * time * Math.sin(angle) -
-      (GRAVITY * Math.pow(time, 2)) / 2
+    x: v * time * Math.cos(angle),
+    y: v * time * Math.sin(angle) - (GRAVITY * Math.pow(time, 2)) / 2
   }
 }
 ```
