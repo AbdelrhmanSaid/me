@@ -26,7 +26,7 @@ const backToTop = () => {
 </script>
 
 <template>
-  <main class="antialiased dark:bg-zinc-950 dark:text-white">
+  <main class="antialiased">
     <header class="max-w-3xl mx-auto px-4 sm:px-6 xl:max-w-5xl xl:px-0">
       <nav class="flex justify-between items-center py-10 font-bold">
         <a href="/" v-if="frontmatter.index" class="text-xl">
@@ -73,10 +73,10 @@ const backToTop = () => {
     <button
       v-if="showBackToTop"
       @click="backToTop"
-      class="fixed bottom-0 right-0 mb-5 mr-5 bg-gray-100 dark:bg-gray-800 rounded-full p-3"
+      class="fixed bottom-0 right-0 mb-5 mr-5 bg-gray-100 rounded-full p-3"
     >
       <svg
-        class="h-5 w-5 text-gray-600 dark:text-gray-400"
+        class="h-5 w-5 text-gray-600"
         fill="currentColor"
         viewBox="0 0 330 330"
       >

@@ -18,41 +18,6 @@ body {
   font-family: var(--font-prose);
 }
 
-:root.dark {
-  background-color: #09090b;
-}
-
-.dark * {
-  border-color: #242424;
-}
-
-.dark .prose * {
-  color: #bdbdbd;
-}
-
-.dark .prose h1,
-.dark .prose h2,
-.dark .prose h3,
-.dark .prose h4,
-.dark .prose h5,
-.dark .prose h6,
-.dark .prose strong {
-  color: #fff;
-}
-
-.dark .prose *:not(pre) > code {
-  color: #fff;
-  background-color: #121212;
-  padding: 0.25em 0.5em;
-  border-radius: 0.25rem;
-}
-
-.dark .prose pre {
-  font-family: var(--font-code);
-  font-size: 1.125rem;
-  background-color: #121212;
-}
-
 .lang {
   position: absolute;
   right: 0.5em;

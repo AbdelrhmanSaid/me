@@ -9,13 +9,13 @@ const { frontmatter } = useData()
 <template>
   <div class="divide-y">
     <div class="pt-6 pb-8 space-y-2 md:space-y-5">
-      <p class="text-base leading-6 font-medium text-gray-600 dark:text-gray-400">
+      <p class="text-base leading-6 font-medium text-gray-600">
         Are you wondering...
       </p>
       <h1 class="text-3xl leading-9 font-extrabold tracking-tight md:text-6xl md:leading-14">
         Who am I?
       </h1>
-      <p class="text-lg text-gray-600 dark:text-gray-400 leading-7">
+      <p class="text-lg text-gray-600 leading-7">
         I am a Quality-oriented Software Engineer with a passion for building products that are easy to use, easy to understand, and easy to maintain.
       </p>
     </div>
