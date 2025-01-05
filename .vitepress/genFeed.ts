@@ -29,6 +29,10 @@ export async function genFeed(config: SiteConfig) {
   )
 
   for (const { url, excerpt, frontmatter, html } of posts) {
+    if (frontmatter.draft) {
+      continue
+    }
+
     feed.addItem({
       title: frontmatter.title,
       id: `${baseUrl}${url}`,
