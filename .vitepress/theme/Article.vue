@@ -20,7 +20,7 @@ const post = data.find((p: Post) => p.url === route.path) as Post
 
     <Content class="prose prose-lg max-w-none" />
 
-    <ul class="mt-2 flex flex-wrap space-x-2">
+    <ul class="mt-2 flex flex-wrap gap-2">
       <li v-for="tag in post.tags" :key="tag">
         <span class="rounded bg-gray-100 text-gray-800 px-2 py-1 text-sm">
           {{ tag }}

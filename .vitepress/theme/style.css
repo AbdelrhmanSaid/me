@@ -20,9 +20,9 @@ body {
 
 .lang {
   position: absolute;
-  right: 0.5em;
-  font-size: 0.75em;
-  color: #999;
+  inset-inline-end: 0.5em;
+  font-size: 0.625em;
+  color: #ccc;
   font-family: var(--font-code);
 }
 
@@ -41,4 +41,15 @@ details summary {
 
 mjx-container {
   display: inline-block;
+}
+
+.prose :where(code):not(:where(pre code)) {
+  padding: 0.125em 0.25em;
+  border-radius: 0.25em;
+  background-color: #eee;
+}
+
+.prose :where(code):not(:where(pre code))::before,
+.prose :where(code):not(:where(pre code))::after {
+  content: unset !important;
 }
