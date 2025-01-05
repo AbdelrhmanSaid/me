@@ -1,10 +1,11 @@
 import { createContentLoader } from 'vitepress'
 
 export interface Post {
-  title: string
   url: string
+  title: string
   excerpt: string | undefined
   draft?: boolean
+  tags?: string[]
   date: {
     time: number
     string: string
@@ -18,14 +19,15 @@ export default createContentLoader('posts/*.md', {
   excerpt: true,
   transform(raw): Post[] {
     return raw
-      .map(({ url, frontmatter, excerpt }) => ({
-        title: frontmatter.title,
-        url,
-        excerpt,
-        draft: frontmatter.draft === true,
-        date: formatDate(frontmatter.date)
+      .map((post) => ({
+        url: post.url,
+        title: post.frontmatter.title,
+        excerpt: post.excerpt,
+        draft: post.frontmatter.draft === true,
+        tags: post.frontmatter.tags,
+        date: formatDate(post.frontmatter.date)
       }))
-      .filter((post) => !post.draft)
+      .filter((post) => post.draft !== true)
       .sort((a, b) => b.date.time - a.date.time)
   }
 })
@@ -33,6 +35,7 @@ export default createContentLoader('posts/*.md', {
 function formatDate(raw: string): Post['date'] {
   const date = new Date(raw)
   date.setUTCHours(12)
+
   return {
     time: +date,
     string: date.toLocaleDateString('en-US', {
