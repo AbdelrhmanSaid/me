@@ -1,16 +1,21 @@
 <script setup lang="ts">
-import Date from './Date.vue'
-import { useRoute } from 'vitepress'
+import DateElement from './DateElement.vue'
+import { useRoute, useRouter } from 'vitepress'
 import { Post, data } from './posts.data.js'
 
 const route = useRoute()
+const router = useRouter()
 const post = data.find((p: Post) => p.url === route.path) as Post
+
+if (post.date.time > Date.now()) {
+  router.go('/');
+}
 </script>
 
 <template>
   <article>
     <header class="pt-6 pb-10 space-y-2 md:space-y-5">
-      <Date :date="post.date" />
+      <DateElement :date="post.date" />
       <h1
         class="text-3xl leading-9 font-extrabold tracking-tight sm:text-4xl sm:leading-10 md:text-6xl md:leading-14"
       >

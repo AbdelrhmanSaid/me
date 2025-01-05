@@ -1,9 +1,14 @@
 <script setup lang="ts">
-import Date from './Date.vue'
+import { computed } from 'vue'
+import DateElement from './DateElement.vue'
 import { data as posts } from './posts.data.js'
 import { useData } from 'vitepress'
 
 const { frontmatter } = useData()
+
+const publishedPosts = computed(() =>
+  posts.filter((post) => post.date && post.date.time <= Date.now())
+)
 </script>
 
 <template>
@@ -21,20 +26,26 @@ const { frontmatter } = useData()
       </p>
     </div>
     <ul class="divide-y">
-      <li class="py-12" v-for="{ title, url, date, excerpt } of posts">
+      <li class="py-12" v-for="post of publishedPosts" :key="post.url">
         <article
           class="space-y-2 xl:grid xl:grid-cols-4 xl:space-y-0 xl:items-baseline"
         >
-          <Date :date="date" />
+          <DateElement :date="post.date" />
           <div class="space-y-5 xl:col-span-3">
             <div class="space-y-6">
               <h2 class="text-2xl leading-8 font-bold tracking-tight">
-                <a :href="url">{{ title }}</a>
+                <a :href="post.url">{{ post.title }}</a>
               </h2>
-              <div v-if="excerpt" class="prose" v-html="excerpt"></div>
+              <div
+                v-if="post.excerpt"
+                class="prose"
+                v-html="post.excerpt"
+              ></div>
             </div>
             <div class="text-base leading-6 font-medium">
-              <a class="link" aria-label="read more" :href="url">Read more →</a>
+              <a class="link" aria-label="read more" :href="post.url"
+                >Read more →</a
+              >
             </div>
           </div>
         </article>
