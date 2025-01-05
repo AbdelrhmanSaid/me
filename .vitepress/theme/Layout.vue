@@ -30,6 +30,7 @@ const backToTop = () => {
     <header class="max-w-3xl mx-auto px-4 sm:px-6 xl:max-w-5xl xl:px-0">
       <nav class="flex justify-between items-center py-10 font-bold">
         <a href="/" v-if="frontmatter.index" class="text-xl">
+          All Posts
         </a>
         <a href="/" v-else class="text-xl flex items-center">
           <svg

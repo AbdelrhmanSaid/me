@@ -20,17 +20,12 @@ const post = data.find((p: Post) => p.url === route.path) as Post
 
     <Content class="prose prose-lg max-w-none" />
 
-    <div class="mt-8">
-      <h2 class="text-lg leading-6 font-medium text-gray-900">Tags</h2>
-      <ul class="mt-2 flex flex-wrap space-x-2">
-        <li v-for="tag in post.tags" :key="tag">
-          <span
-            class="inline-flex items-center px-3 py-0.5 rounded text-sm font-medium leading-5 bg-gray-100 text-gray-800"
-          >
-            {{ tag }}
-          </span>
-        </li>
-      </ul>
-    </div>
+    <ul class="mt-2 flex flex-wrap space-x-2">
+      <li v-for="tag in post.tags" :key="tag">
+        <span class="rounded bg-gray-100 text-gray-800 px-2 py-1 text-sm">
+          {{ tag }}
+        </span>
+      </li>
+    </ul>
   </article>
 </template>

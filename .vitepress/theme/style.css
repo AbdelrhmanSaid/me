@@ -26,6 +26,10 @@ body {
   font-family: var(--font-code);
 }
 
+pre {
+  font-family: var(--font-code);
+}
+
 .copy {
   display: none;
 }
