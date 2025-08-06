@@ -6,9 +6,14 @@ import { useData } from 'vitepress'
 
 const { frontmatter } = useData()
 
-const publishedPosts = computed(() =>
-  posts.filter((post) => post.date && post.date.time <= Date.now())
-)
+const publishedPosts = computed(() => {
+  const currentUTCTime = new Date()
+  currentUTCTime.setUTCHours(12, 0, 0, 0)
+
+  return posts.filter(
+    (post) => post.date && post.date.time <= currentUTCTime.getTime()
+  )
+})
 </script>
 
 <template>
