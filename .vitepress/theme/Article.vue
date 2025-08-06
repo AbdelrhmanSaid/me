@@ -7,8 +7,11 @@ const route = useRoute()
 const router = useRouter()
 const post = data.find((p: Post) => p.url === route.path) as Post
 
-if (post.date.time > Date.now()) {
-  router.go('/');
+const today = new Date()
+today.setUTCHours(12, 0, 0, 0)
+
+if (post.date.time > today.getTime()) {
+  router.go('/')
 }
 </script>
 
