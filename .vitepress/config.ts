@@ -1,14 +1,22 @@
+import tailwindPostcss from '@tailwindcss/postcss'
 import { defineConfig } from 'vitepress'
 import { genFeed } from './genFeed.js'
 
 export default defineConfig({
-  title: 'Abdelrhman Said',
+  title: 'Abdelrhman Said — Senior Software Engineer',
   description:
-    'Quality-oriented Software Engineer with a passion for building products that are easy to use, easy to understand, and easy to maintain.',
+    'Abdelrhman Said, quality-oriented Senior Software Engineer in Cairo, Egypt, focused on building products that are easy to use, understand, and maintain.',
   cleanUrls: true,
   markdown: {
     theme: 'github-dark',
     math: true
+  },
+  vite: {
+    css: {
+      postcss: {
+        plugins: [tailwindPostcss()]
+      }
+    }
   },
   head: [
     [

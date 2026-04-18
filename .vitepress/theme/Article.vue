@@ -16,21 +16,27 @@ if (post.date.time > today.getTime()) {
 </script>
 
 <template>
-  <article>
-    <header class="pt-6 pb-10 space-y-2 md:space-y-5">
+  <article class="mx-auto mt-16 w-full max-w-208 md:mt-20">
+    <header class="w-full">
       <DateElement :date="post.date" />
       <h1
-        class="text-3xl leading-9 font-extrabold tracking-tight sm:text-4xl sm:leading-10 md:text-6xl md:leading-14"
+        class="mt-4 mb-0 font-serif text-[2.375rem] font-semibold leading-[1.2] tracking-[-0.025em] text-ink md:text-[3.125rem] md:leading-[1.12]"
       >
         {{ post.title }}
       </h1>
     </header>
 
-    <Content class="prose prose-lg max-w-none" />
+    <div class="mt-12 max-w-none">
+      <Content
+        class="prose prose-xl max-w-none font-serif prose-headings:font-serif prose-p:leading-[1.7] prose-li:leading-[1.7]"
+      />
+    </div>
 
-    <ul class="mt-2 flex flex-wrap gap-2">
+    <ul v-if="post.tags?.length" class="mt-10 flex w-full flex-wrap gap-2 p-0 list-none">
       <li v-for="tag in post.tags" :key="tag">
-        <span class="rounded bg-gray-100 text-gray-800 px-2 py-1 text-sm">
+        <span
+          class="inline-flex items-center rounded-md border border-ink/14 bg-[linear-gradient(145deg,rgba(246,243,237,0.7),rgba(28,25,23,0.04))] px-[0.7rem] py-[0.35rem] font-sans text-[0.6875rem] font-semibold uppercase tracking-[0.03em] text-muted"
+        >
           {{ tag }}
         </span>
       </li>

@@ -1,28 +1,81 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Poppins:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap');
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+@source '../../**/*.{vue,md,ts}';
+
+@theme {
+  --color-surface: #f6f3ed;
+  --color-ink: #1c1917;
+  --color-muted: #44403c;
+  --color-accent: #9c2f1a;
+  --color-accent-hover: #7a2413;
+  --color-panel: #f1ede4;
+  --font-serif: 'Source Serif 4', Georgia, serif;
+  --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
+}
+
+@layer base {
+  .prose {
+    --tw-prose-body: #44403c;
+    --tw-prose-headings: #1c1917;
+    --tw-prose-lead: #44403c;
+    --tw-prose-links: #9c2f1a;
+    --tw-prose-bold: #1c1917;
+    --tw-prose-counters: #78716c;
+    --tw-prose-bullets: #78716c;
+    --tw-prose-hr: #e7e5e4;
+    --tw-prose-quotes: #1c1917;
+    --tw-prose-quote-borders: #9c2f1a;
+    --tw-prose-captions: #78716c;
+    --tw-prose-code: #1c1917;
+    --tw-prose-pre-code: #e7e5e4;
+    --tw-prose-pre-bg: #292524;
+    --tw-prose-th-borders: #d6d3d1;
+    --tw-prose-td-borders: #e7e5e4;
+  }
+}
 
 :root {
-  --font-code: 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco,
-    Consolas, 'Liberation Mono', 'Courier New', monospace;
-  --font-prose: 'Poppins', ui-sans-serif, system-ui, -apple-system,
-    BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, Noto Sans,
-    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-    'Noto Color Emoji';
+  --color-surface: #f6f3ed;
+  --color-accent: #9c2f1a;
+  --font-code:
+    'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  --font-prose: 'Source Serif 4', Georgia, serif;
 }
 
 html,
 body {
-  font-family: var(--font-prose);
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+}
+
+.bg-page {
+  background-color: var(--color-surface);
+  background-image:
+    radial-gradient(circle at top right, rgba(156, 47, 26, 0.04), transparent 40rem),
+    radial-gradient(circle at bottom left, rgba(28, 25, 23, 0.03), transparent 30rem);
+}
+
+.bg-noise-texture {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+.focus-ring:focus {
+  outline: none;
+}
+
+.focus-ring:focus-visible {
+  box-shadow:
+    0 0 0 2px var(--color-surface),
+    0 0 0 4px var(--color-accent);
 }
 
 .lang {
   position: absolute;
   inset-inline-end: 0.5em;
   font-size: 0.625em;
-  color: #ccc;
+  color: #a8a29e;
   font-family: var(--font-code);
 }
 
@@ -43,13 +96,15 @@ mjx-container {
   display: inline-block;
 }
 
-.prose :where(code):not(:where(pre code)) {
+.prose :where(code):not(:where(pre *)) {
   padding: 0.125em 0.25em;
   border-radius: 0.25em;
-  background-color: #eee;
+  background-color: rgba(28, 25, 23, 0.06);
+  font-family: var(--font-code);
+  font-size: 0.9em;
 }
 
-.prose :where(code):not(:where(pre code))::before,
-.prose :where(code):not(:where(pre code))::after {
+.prose :where(code):not(:where(pre *))::before,
+.prose :where(code):not(:where(pre *))::after {
   content: unset !important;
 }

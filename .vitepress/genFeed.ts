@@ -8,7 +8,8 @@ const baseUrl = `https://abdelrhmansaid.netlify.app`
 export async function genFeed(config: SiteConfig) {
   const feed = new Feed({
     title: 'Abdelrhman Said',
-    description: 'Quality-oriented Software Engineer with a passion for building products that are easy to use, easy to understand, and easy to maintain.',
+    description:
+      'Quality-oriented Software Engineer with a passion for building products that are easy to use, easy to understand, and easy to maintain.',
     id: baseUrl,
     link: baseUrl,
     language: 'en',
@@ -22,11 +23,7 @@ export async function genFeed(config: SiteConfig) {
     render: true
   }).load()
 
-  posts.sort(
-    (a, b) =>
-      +new Date(b.frontmatter.date as string) -
-      +new Date(a.frontmatter.date as string)
-  )
+  posts.sort((a, b) => +new Date(b.frontmatter.date as string) - +new Date(a.frontmatter.date as string))
 
   for (const { url, excerpt, frontmatter, html } of posts) {
     if (frontmatter.draft) {

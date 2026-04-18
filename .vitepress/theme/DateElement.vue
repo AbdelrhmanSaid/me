@@ -9,9 +9,9 @@ function getDateTime() {
 </script>
 
 <template>
-  <dl>
+  <dl class="m-0">
     <dt class="sr-only">Published on</dt>
-    <dd class="text-base leading-6 font-medium text-gray-600">
+    <dd class="m-0 font-sans text-xs font-medium uppercase tracking-[0.05em] text-muted">
       <time :datetime="getDateTime()">{{ date.string }}</time>
     </dd>
   </dl>
