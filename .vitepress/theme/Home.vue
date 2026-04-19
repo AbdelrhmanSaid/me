@@ -419,7 +419,7 @@ const publishedPosts = computed(() => {
               <h3 class="m-0 font-serif text-[1.25rem] font-semibold text-ink">
                 Prismatecs w/ Afaq-IT, Heliopolis — Senior Software Engineer
               </h3>
-              <p class="m-0 font-sans text-sm font-medium uppercase tracking-[0.05em] text-muted">Sep 2021 - Present</p>
+              <p class="m-0 font-sans text-sm font-medium uppercase tracking-[0.05em] text-muted whitespace-nowrap">Sep 2021 - Present</p>
             </div>
             <div class="mt-4">
               <p class="font-sans text-sm leading-[1.625] text-muted mt-0 mb-0">
@@ -444,7 +444,7 @@ const publishedPosts = computed(() => {
               <h3 class="m-0 font-serif text-[1.25rem] font-semibold text-ink">
                 Waffrlly, Cairo — Full Stack Developer
               </h3>
-              <p class="m-0 font-sans text-sm font-medium uppercase tracking-[0.05em] text-muted">
+              <p class="m-0 font-sans text-sm font-medium uppercase tracking-[0.05em] text-muted whitespace-nowrap">
                 Mar 2020 - Nov 2021
               </p>
             </div>
