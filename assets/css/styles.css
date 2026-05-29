@@ -74,53 +74,6 @@ p {
   padding: 0 32px;
 }
 
-@media (max-width: 520px) {
-  .wrap {
-    padding: 0 22px;
-  }
-
-  /* Currently: label sits above the content instead of in a fixed
-     side column, so the description gets the full width. */
-  .now {
-    grid-template-columns: 1fr;
-    gap: 3px;
-  }
-
-  .now .label {
-    padding-top: 0;
-  }
-
-  /* Experience / Selected Work: the date becomes a compact caption
-     above the title rather than a right-hand column, so titles stop
-     wrapping awkwardly and use the full width. */
-  .row {
-    grid-template-columns: 24px 1fr;
-    column-gap: 12px;
-    row-gap: 2px;
-  }
-
-  .row-n {
-    grid-row: 1;
-  }
-
-  .row-meta {
-    grid-column: 2;
-    grid-row: 1;
-    padding-top: 0;
-  }
-
-  .row > span:not(.row-n):not(.row-meta) {
-    grid-column: 2;
-    grid-row: 2;
-  }
-
-  /* Stack: label above the value, full-width value. */
-  .stack-row {
-    grid-template-columns: 1fr;
-    gap: 2px;
-  }
-}
-
 .mono {
   font-family: var(--mono);
 }
@@ -382,4 +335,54 @@ footer.foot {
   font-family: var(--mono);
   font-size: 12px;
   color: var(--mute);
+}
+
+/* Mobile overrides — kept at the end so they win over the base
+   component rules above (media queries don't add specificity, so
+   source order decides). */
+@media (max-width: 520px) {
+  .wrap {
+    padding: 0 22px;
+  }
+
+  /* Currently: label sits above the content instead of in a fixed
+     side column, so the description gets the full width. */
+  .now {
+    grid-template-columns: 1fr;
+    gap: 3px;
+  }
+
+  .now .label {
+    padding-top: 0;
+  }
+
+  /* Experience / Selected Work: the date becomes a compact caption
+     above the title rather than a right-hand column, so titles stop
+     wrapping awkwardly and use the full width. */
+  .row {
+    grid-template-columns: 24px 1fr;
+    column-gap: 12px;
+    row-gap: 2px;
+  }
+
+  .row-n {
+    grid-row: 1;
+  }
+
+  .row-meta {
+    grid-column: 2;
+    grid-row: 1;
+    padding-top: 0;
+  }
+
+  .row > span:not(.row-n):not(.row-meta) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  /* Stack: label above the value, full-width value. */
+  .stack-row {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
 }

@@ -2,14 +2,14 @@ document.getElementById('year').textContent = new Date().getFullYear()
 
 const link = document.getElementById('emailLink')
 const hint = document.getElementById('emailHint')
-const email = 'abdelrhmansaidzaki@hotmail.com'
+
+// Email kept out of the markup to avoid scraping; decoded only on demand.
+const encodedEmail = 'YWJkZWxyaG1hbnNhaWR6YWtpQGhvdG1haWwuY29t'
 
 link.addEventListener('click', (event) => {
-  if (event.metaKey || event.ctrlKey) {
-    return
-  }
-
   event.preventDefault()
+
+  const email = atob(encodedEmail)
 
   if (!navigator.clipboard) {
     return
