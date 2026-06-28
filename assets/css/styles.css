@@ -374,6 +374,13 @@ footer.foot {
     grid-template-columns: 24px minmax(0, 1fr);
   }
 
+  /* Role rows have no date caption, so keep the number and body on the
+     same row instead of letting the body drop to row 2 (which left a
+     vertical gap between the number and the title). */
+  .role-row .row-body {
+    grid-row: 1;
+  }
+
   .role-head {
     display: block;
   }
