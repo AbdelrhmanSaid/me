@@ -155,37 +155,6 @@ section {
   margin-top: 14px;
 }
 
-.now-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.now {
-  display: grid;
-  grid-template-columns: 132px 1fr;
-  gap: 20px;
-}
-
-.now .label {
-  font-family: var(--mono);
-  font-size: 12px;
-  color: var(--mute);
-  padding-top: 3px;
-}
-
-.now .title {
-  font-size: 15px;
-  font-weight: 500;
-}
-
-.now .desc {
-  font-size: 14px;
-  line-height: 1.55;
-  color: var(--ink-2);
-  margin-top: 2px;
-}
-
 .row {
   display: grid;
   grid-template-columns: 26px 1fr auto;
@@ -241,6 +210,25 @@ a.row:hover .row-meta {
     opacity 0.15s;
 }
 
+.role-row {
+  grid-template-columns: 26px minmax(0, 1fr);
+}
+
+.role-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  min-width: 0;
+}
+
+.role-period {
+  flex: 0 0 auto;
+  color: var(--mute);
+  font-size: 12px;
+  font-family: var(--mono);
+}
+
 .row-title {
   font-size: 15px;
   font-weight: 500;
@@ -266,7 +254,35 @@ a.row:hover .row-meta {
   line-height: 1.5;
   color: var(--ink-2);
   margin-top: 5px;
-  max-width: 42em;
+}
+
+.row-body {
+  min-width: 0;
+}
+
+.role-points {
+  list-style: none;
+  margin: 7px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 4px;
+}
+
+.role-points li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--ink-2);
+}
+
+.role-points li::before {
+  content: "/";
+  position: absolute;
+  left: 0;
+  color: var(--mute);
+  font-family: var(--mono);
+  font-size: 11px;
 }
 
 .stack-row {
@@ -345,17 +361,6 @@ footer.foot {
     padding: 0 22px;
   }
 
-  /* Currently: label sits above the content instead of in a fixed
-     side column, so the description gets the full width. */
-  .now {
-    grid-template-columns: 1fr;
-    gap: 3px;
-  }
-
-  .now .label {
-    padding-top: 0;
-  }
-
   /* Experience / Selected Work: the date becomes a compact caption
      above the title rather than a right-hand column, so titles stop
      wrapping awkwardly and use the full width. */
@@ -363,6 +368,19 @@ footer.foot {
     grid-template-columns: 24px 1fr;
     column-gap: 12px;
     row-gap: 2px;
+  }
+
+  .role-row {
+    grid-template-columns: 24px minmax(0, 1fr);
+  }
+
+  .role-head {
+    display: block;
+  }
+
+  .role-period {
+    display: block;
+    margin-bottom: 1px;
   }
 
   .row-n {
@@ -375,7 +393,8 @@ footer.foot {
     padding-top: 0;
   }
 
-  .row > span:not(.row-n):not(.row-meta) {
+  .row > span:not(.row-n):not(.row-meta),
+  .row-body {
     grid-column: 2;
     grid-row: 2;
   }
